@@ -1,6 +1,10 @@
 package com.wssonar.core.model;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -83,6 +87,34 @@ public class WebService {
             return false;
         }
         return true;
+    }
+    
+    /**
+     * @return host name of the SOAP URI
+     */
+    public String getSoapHost() {
+        String soapHost = "";
+        try {
+            URL url = new URL(soapAddress);
+            soapHost = url.getHost();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(WebService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return soapHost;
+    }
+
+    /**
+     * @return port number of the SOAP URI
+     */
+    public int getSoapPort() {
+        int soapPort = 80;
+        try {
+            URL url = new URL(soapAddress);
+            soapPort = url.getPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(WebService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return soapPort == -1 ? 80 : soapPort;
     }
 
     @Override

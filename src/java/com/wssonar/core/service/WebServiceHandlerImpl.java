@@ -1,40 +1,33 @@
 package com.wssonar.core.service;
 
-import java.util.Map;
 import com.wssonar.core.model.WebService;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+
 /**
- *
+ * Web service handler, manages web services that are monitored and provides a list 
+ * of these web services to other classes
  * @author Osama Abu-Obeid <osamaao@gmail.com>
  */
-import java.util.HashMap;
 public class WebServiceHandlerImpl implements WebServiceHandler {
     
-    private Map<String, WebService> webServices;
+    private List<WebService> webServices;
 
     public WebServiceHandlerImpl() {
-        webServices = new HashMap<>();
+        webServices = new ArrayList<>();
         initMap();
     }
-    
+   
     private void initMap() {
-        webServices.put("80923480", new WebService("80923480", "weather.gov/forecasts", 
+        webServices.add(new WebService("80923480", "weather.gov/forecasts", 
                 "http://www.weather.gov/forecasts/xml/DWMLgen/wsdl/ndfdXML.wsdl",
                 "http://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php"));
     }
 
-    public Map<String, WebService> getWebServices() {
-        return webServices;
-    }
-
-    public void setWebServices(Map<String, WebService> webServices) {
-        this.webServices = webServices;
-    }
-
     @Override
-    public Map<String, WebService> webServiceIterable() {
-        return Collections.unmodifiableMap(webServices);
+    public List<WebService> getWebServices() {
+        return Collections.unmodifiableList(webServices);
     }
-    
-    
+
 }
