@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Represents a Web Service
  * @author Osama Abu-Obeid <osamaao@gmail.com>
  */
 public class WebService {

@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import org.springframework.scheduling.annotation.Scheduled;
 
 /**
- *
+ * Loads web services data to be used by the WebServiceHandler
  * @author Osama Abu-Obeid <osamaao@gmail.com>
  */
 public class WebServicesLoaderJob {

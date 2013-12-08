@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import com.wssonar.core.model.WebServiceTest;
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- *
+ * Test Suite
  * @author Osama Abu-Obeid <osamaao@gmail.com>
  */
 @RunWith(Suite.class)

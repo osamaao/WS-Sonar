@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.wssonar.core.model;
 
 import org.junit.After;
@@ -10,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Test case for class {@link WebService}
  * @author Osama Abu-Obeid <osamaao@gmail.com>
  */
 public class WebServiceTest {
