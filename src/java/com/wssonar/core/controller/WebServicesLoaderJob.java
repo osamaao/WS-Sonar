@@ -17,7 +17,7 @@ public class WebServicesLoaderJob {
         this.wsHandler = wsHandler;
     }
     
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 300000)
     public void perform() {
         System.out.println(
                 "============>" +

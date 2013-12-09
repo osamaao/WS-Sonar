@@ -31,8 +31,10 @@
     <task:scheduler id="myScheduler" pool-size="10"/>
     
     <bean id="webServiceHandlerImpl" class="com.wssonar.core.service.WebServiceHandlerImpl" scope="singleton" />
+    <bean id="metricsStorageHandlerImpl" class="com.wssonar.core.controller.MetricStorageHandlerImpl" scope="singleton" />
     <bean id="metricCollectorJob" class="com.wssonar.core.controller.MetricCollectorJob">
            <constructor-arg ref="webServiceHandlerImpl"/>
+           <constructor-arg ref="metricsStorageHandler"/>
     </bean>
 
 </beans>

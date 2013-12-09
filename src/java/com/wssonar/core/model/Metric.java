@@ -89,6 +89,9 @@ public class Metric<ValueType> {
         return true;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Metric{" + "name=" + name + ", value=" + value + ", system=" + system + ", component=" + component + ", createdOn=" + createdOn + '}';
+    }
     
 }

@@ -19,11 +19,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class MetricCollectorJob {
 
     private WebServiceHandler wsHandler;
+    private MetricStorageHandler metricsStorageHandlerImpl;
     private final static Logger LOGGER = Logger.getLogger(MetricCollectorJob.class.getName());
 
     @Inject
-    public MetricCollectorJob(WebServiceHandler wsHandler) {
+    public MetricCollectorJob(WebServiceHandler wsHandler, MetricStorageHandlerImpl metricsStorageHandlerImpl) {
         this.wsHandler = wsHandler;
+        this.metricsStorageHandlerImpl = metricsStorageHandlerImpl;
     }
 
     @Scheduled(fixedDelay = 5000)
@@ -33,6 +35,7 @@ public class MetricCollectorJob {
         for (WebService ws: webServices) {
             NetworkLatencyAgent latencyAgent = new NetworkLatencyAgent(ws);
             Metric<Long> latency = latencyAgent.measure();
+            metricsStorageHandlerImpl.persist(latency);
         }
     }
 
