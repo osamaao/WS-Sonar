@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class MetricStorageHandlerImpl implements MetricStorageHandler {
     
-    private final int MAX_SIZE = 10;
+    private final int MAX_SIZE = 1000;
     private final static Logger LOGGER = Logger.getLogger(MetricStorageHandlerImpl.class.getName());
     
     private ConcurrentLinkedDeque<Metric> metrics;
